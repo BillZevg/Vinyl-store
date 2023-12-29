@@ -1,0 +1,26 @@
+<app-not-found
+  [visible]="!vinyl"
+  notFoundMessage="Vinyl Not Found"
+  resetLinkText="Back To Homepage"
+></app-not-found>
+<div *ngIf="vinyl" class="container">
+  <img [src]="vinyl.imageUrl" [alt]="vinyl.artist" />
+  <div class="info">
+    <div class="header">
+      <span class="artist"> Artist: {{ vinyl.artist }} </span>
+    </div>
+    <span class="albumTitle"> Album: {{ vinyl.albumTitle }} </span>
+
+    <div class="genre">Genre: {{ vinyl.genre }}</div>
+    <div class="year">Year: {{ vinyl.year }}</div>
+    <div class="format">Format: {{ vinyl.format }}</div>
+    <div class="price">
+      <span> Price: {{ vinyl.price | currency : "EUR" }} </span>
+    </div>
+
+    <button (click)="addToCart()">Add To Cart</button>
+    <span class="favorite {{ vinyl.favorite ? '' : 'not' }}"
+      ><i class="far fa-heart"></i
+    ></span>
+  </div>
+</div>

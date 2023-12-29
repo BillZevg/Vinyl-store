@@ -1,0 +1,60 @@
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+li a {
+  height: 22.5rem;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: black;
+  font-style: bold;
+}
+
+li a:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+li a img {
+  object-fit: contain;
+  height: 14.5rem;
+  width: auto;
+}
+
+.content {
+  margin-top: 0.3rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  height: 9rem;
+  text-align: center;
+}
+
+.favorite {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  color: red;
+}
+
+.favorite.not {
+  color: grey;
+}
+
+/* .price {
+  position: absolute;
+  bottom: 0;
+  left: 0.9rem;
+  background: white;
+  padding: 0.3rem 100% 0 0;
+  color: black;
+} */

@@ -1,0 +1,26 @@
+<app-search></app-search>
+<app-not-found
+  [visible]="!vinyls || !vinyls.length"
+  resetLinkText="Reset Search"
+>
+</app-not-found>
+
+<ul>
+  <li *ngFor="let vinyl of vinyls">
+    <a href="/vinyl/{{ vinyl.id }}">
+      <img [src]="vinyl.imageUrl" [alt]="vinyl.albumTitle" />
+      <div class="content">
+        <div class="artist">Artist: {{ vinyl.artist }}</div>
+        <div class="albumTitle">Album: {{ vinyl.albumTitle }}</div>
+
+        <div class="genre">Genre: {{ vinyl.genre }}</div>
+        <div class="year">Year: {{ vinyl.year }}</div>
+        <div class="format">Format: {{ vinyl.format }}</div>
+        <div class="price">Price: {{ vinyl.price | currency : "EUR" }}</div>
+        <span class="favorite {{ vinyl.favorite ? '' : 'not' }}"
+          ><i class="far fa-heart"></i>
+        </span>
+      </div>
+    </a>
+  </li>
+</ul>

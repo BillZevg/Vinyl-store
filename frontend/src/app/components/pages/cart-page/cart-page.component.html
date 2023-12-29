@@ -1,0 +1,49 @@
+<app-title title="Cart Page" margin="1.5rem 0 0 2.5rem"></app-title>
+<app-not-found
+  [visible]="!cart || !cart.items.length"
+  notFoundMessage="Cart Page Is Empty!"
+  resetLinkText="Go To Homepage"
+>
+</app-not-found>
+<div *ngIf="cart && cart.items.length" class="container">
+  <ul>
+    <li *ngFor="let cartItem of cart.items">
+      <div>
+        <img [src]="cartItem.vinyl.imageUrl" [alt]="cartItem.vinyl.artist" />
+      </div>
+      <div>
+        <a routerLink="/vinyl/{{ cartItem.vinyl.id }}">
+          {{ cartItem.vinyl.artist }} - {{ cartItem.vinyl.albumTitle }}
+        </a>
+      </div>
+      <div>
+        <select
+          #quantitySelect
+          [value]="cartItem.quantity"
+          (change)="changeQuantity(cartItem, quantitySelect.value)"
+        >
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div>
+        {{ cartItem.price | currency : "EUR" }}
+      </div>
+      <div>
+        <button class="remove-button" (click)="removeFromCart(cartItem)">
+          🗑️
+        </button>
+      </div>
+    </li>
+  </ul>
+  <div class="checkout">
+    <div>
+      <div class="vinyls-count">{{ cart.totalCount }}</div>
+      <div class="total-price">{{ cart.totalPrice | currency : "EUR" }}</div>
+    </div>
+    <a routerLink="/checkout">Proceed to Checkout</a>
+  </div>
+</div>
