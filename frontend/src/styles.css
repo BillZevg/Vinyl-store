@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+button {
+  font-family: "Roboto Condensed", "sans-serif";
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fa-heart {
+  color: #32a2a8;
+  cursor: pointer;
+}
